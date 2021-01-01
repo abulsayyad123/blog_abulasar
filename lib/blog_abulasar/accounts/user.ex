@@ -2,6 +2,7 @@ defmodule BlogAbulasar.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias BlogAbulasar.Accounts.User
+  alias BlogAbulasar.Blogs.Post
 
   schema "users" do
     field :first_name, :string
@@ -10,6 +11,9 @@ defmodule BlogAbulasar.Accounts.User do
     field :password, :string
     field :email, :string
     field :is_verified, :boolean
+
+    has_many :authored_posts, Post, foreign_key: :created_by_id
+    has_many :approved_posts, Post, foreign_key: :approved_by_id
 
     timestamps()
   end
