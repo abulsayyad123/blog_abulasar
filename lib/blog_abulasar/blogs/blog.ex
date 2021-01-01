@@ -9,7 +9,8 @@ defmodule BlogAbulasar.Blogs.Blog do
   def list_posts() do
     from(
       p in Post,
-      where: p.published == true
+      where: p.published == true,
+      preload: [:created_by]
     )
     |> Repo.all
   end

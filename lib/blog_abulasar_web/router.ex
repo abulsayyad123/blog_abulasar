@@ -17,7 +17,8 @@ defmodule BlogAbulasarWeb.Router do
   scope "/", BlogAbulasarWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", BlogIndexLive
+    live "/posts", PostDetailLive
   end
 
   # Other scopes may use custom stacks.
