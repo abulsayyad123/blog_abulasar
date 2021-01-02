@@ -29,6 +29,10 @@ defmodule BlogAbulasar.Blogs.Blog do
     |> Repo.insert()
   end
 
+  def change_post(%Post{} = post) do
+    Post.changeset(post, %{})
+  end
+
   def update_post(%Post{} = post, attrs) do
     post
     |> change_post(attrs)

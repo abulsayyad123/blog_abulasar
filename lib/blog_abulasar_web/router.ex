@@ -19,6 +19,7 @@ defmodule BlogAbulasarWeb.Router do
 
     live "/", BlogIndexLive
     live "/posts", PostDetailLive
+    live "/create_post", CreatePostLive
   end
 
   # Other scopes may use custom stacks.

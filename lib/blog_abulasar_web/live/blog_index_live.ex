@@ -1,7 +1,9 @@
 defmodule BlogAbulasarWeb.BlogIndexLive do
   use BlogAbulasarWeb, :live_view
+
   alias BlogAbulasar.Blogs.Blog
   alias BlogAbulasarWeb.PostDetailLive
+  alias BlogAbulasarWeb.CreatePostLive
 
   def mount(_params, _session, socket) do
     all_posts = Blog.list_posts()
@@ -15,6 +17,8 @@ defmodule BlogAbulasarWeb.BlogIndexLive do
   def render(assigns) do
     ~L"""
     <h1 class="text-red-400 text-5xl font-bold text-center">Recent Blogs</h1>
+    <%= live_patch "Create Post", to: Routes.live_path(@socket, CreatePostLive), class: "float-right uppercase px-8 py-2 rounded bg-blue-600 text-blue-50 max-w-max shadow-sm hover:shadow-md bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50" %>
+
 
       <div class="container my-12 mx-auto px-4 md:px-12">
         <%= for post <- @posts do %>
